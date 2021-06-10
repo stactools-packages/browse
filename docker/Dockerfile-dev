@@ -1,0 +1,7 @@
+FROM stactools-browse:latest
+
+RUN conda install -c conda-forge pandoc
+
+COPY . /src/stactools-browse
+RUN pip install -r /src/stactools-browse/requirements-dev.txt
+WORKDIR /src/stactools-browse

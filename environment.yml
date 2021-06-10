@@ -1,0 +1,6 @@
+name: stactools-browse
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - gdal
