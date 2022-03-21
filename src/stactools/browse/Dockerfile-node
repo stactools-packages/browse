@@ -6,8 +6,8 @@ WORKDIR /opt/src
 RUN npm install --global http-server
 
 RUN git clone --depth=1 \
-    https://github.com/lossyrob/stac-browser.git \
-    --branch feature/ts
+    https://github.com/radiantearth/stac-browser \
+    --branch v2.0.0
 
 WORKDIR /opt/src/stac-browser
 
