@@ -44,6 +44,7 @@ def launch_browser(catalog_uri):
 
 
 def browse_command(cli):
+
     @cli.command(
         'browse',
         short_help=('Launch a local stac-browser and tiler via docker '
