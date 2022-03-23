@@ -29,16 +29,17 @@ def launch_browser(catalog_uri):
         rendered_docker_compose = template.render(
             catalog_dir=catalog_dir, catalog_filename=catalog_filename)
 
-        with open(os.path.join(tmp_dir, "docker-compose.yml"), 'w') as f:
+        compose_file = os.path.join(tmp_dir, "docker-compose.yml")
+        with open(compose_file, 'w') as f:
             f.write(rendered_docker_compose)
 
         curdir = os.path.abspath(os.curdir)
         try:
             os.chdir(tmp_dir)
-            p = Popen(['docker-compose', 'up'])
+            p = Popen(['docker-compose', '-f', compose_file, 'up'])
             p.wait()
         finally:
-            call(['docker-compose', 'kill'])
+            call(['docker-compose', '-f', compose_file, 'kill'])
             p.terminate()
             os.chdir(curdir)
 
