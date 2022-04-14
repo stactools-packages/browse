@@ -20,6 +20,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         usage
     else
         # Code formatting
-        yapf -ipr ${DIRS_TO_CHECK[@]}
+        pre-commit run black --all-files
+        pre-commit run isort --all-files
     fi
 fi
